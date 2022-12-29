@@ -1,0 +1,48 @@
+require:
+  - rubocop-performance
+inherit_gem:
+  rubocop-shopify: rubocop.yml
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  SuggestExtensions: false
+  NewCops: enable
+  Exclude:
+    - local/**/*
+    - tmp/**/*
+Naming/MethodName:
+  Enabled: false
+Naming/FileName:
+  Exclude:
+    - "**/*.gemspec"
+    - "**/*_spec.rb"
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: single_quotes
+Layout/HashAlignment:
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
+Layout/LineLength:
+  Max: 170
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: no_comma
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: true
+  Max: 60
+Metrics/ParameterLists:
+  Max: 6
+Metrics/BlockNesting:
+  Max: 5
+Style/BarePercentLiterals:
+  EnforcedStyle: percent_q
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: no_comma
+Style/DateTime:
+  Enabled: false
+Style/TrailingCommaInArguments:
+  Enabled: false
+Lint/RedundantCopDisableDirective:
+  Enabled: false

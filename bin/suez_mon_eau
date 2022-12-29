@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby -Ilib
+# frozen_string_literal: true
+
+require 'suez_mon_eau'
+require 'date'
+require 'optparse'
+
+options = {}
+opt_parser=OptionParser.new do |p|
+  p.banner = "Usage: #{$PROGRAM_NAME} [options]"
+  p.on('-u', '--username USER', 'Portal username', String){|v|options[:username] = v}
+  p.on('-p', '--password PASS', 'Portal password', String){|v|options[:password] = v}
+  p.on('-P', '--provider PROVIDER', 'Water Provider (Default: Suez)', String){|v|options[:provider] = v}
+  p.on('-i', '--id ID', 'Counter identifier', String){|v|options[:id] = v}
+  p.on('-d', '--debug', 'Turn on Rest trace', String){RestClient.log=$stderr}
+end
+opt_parser.parse!
+if %i[username password].any?{|i|options[i].nil?}
+  puts opt_parser
+  exit 1
+end
+suez = SuezClient.new(**options)
+puts('Contracts:')
+pp suez.contracts
+puts('Recent:')
+pp suez.monthly_recent
+puts('This Month:')
+pp suez.daily_for_month(DateTime.now)
+puts('Current:')
+pp suez.total_volume
