@@ -8,8 +8,8 @@ class SuezMonEau
   VERSION='0.1'
   GEM_NAME='suez_mon_eau'
   SRC_URL='https://github.com/laurent-martin/ruby-suez-mon-eau'
-  DOC_URL='https://github.com/laurent-martin/ruby-suez-mon-eau'
-  GEM_URL='https://github.com/laurent-martin/ruby-suez-mon-eau'
+  DOC_URL='https://github.com/laurent-martin/ruby-suez-mon-eau/#readme'
+  GEM_URL='https://rubygems.org/gems/suez_mon_eau'
   BASE_URIS = {
     'Suez'       => 'https://www.toutsurmoneau.fr/mon-compte-en-ligne',
     'Eau Olivet' => 'https://www.eau-olivet.fr/mon-compte-en-ligne'
