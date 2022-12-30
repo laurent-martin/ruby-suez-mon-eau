@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby -Ilib
 # frozen_string_literal: true
 
-require 'suez-mon-eau'
+require 'suez_mon_eau'
 require 'date'
 require 'optparse'
 

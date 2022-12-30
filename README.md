@@ -19,6 +19,12 @@ var $url = '/mon-compte-en-ligne/exporter-consommation/month/7444012345';
 
 An example of use is provided in script: [bin/suez_mon_eau](bin/suez_mon_eau)
 
+To display the current volume:
+
+```bash
+ruby -Ilib -r suez_mon_eau -e 'puts SuezMonEau.new(username:"_username_here_",password:"_password_here_").total_volume'
+```
+
 ## Gem Signature
 
 SuezMonEau is cryptographically signed.

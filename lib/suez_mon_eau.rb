@@ -57,7 +57,12 @@ class SuezMonEau
     response = RestClient.post("#{@base_uri}/#{API_ENDPOINT_LOGIN}", data,
       { cookies: initial_response.cookies }) do |resp, _req, _res|
       case resp.code
-      when 301, 302, 307 then resp.follow_redirection
+      when 301, 302, 307
+        begin
+          resp.follow_redirection
+        rescue RestClient::Found
+          raise 'Check username and password'
+        end
       else resp.return!
       end
     end
