@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby -Ilib
 # frozen_string_literal: true
 
-require 'suez_mon_eau'
+require 'suez-mon-eau'
 require 'date'
 require 'optparse'
 
@@ -19,7 +19,7 @@ if %i[username password].any?{|i|options[i].nil?}
   puts opt_parser
   exit 1
 end
-suez = SuezClient.new(**options)
+suez = SuezMonEau.new(**options)
 puts('Contracts:')
 pp suez.contracts
 puts('Recent:')

@@ -18,3 +18,36 @@ var $url = '/mon-compte-en-ligne/exporter-consommation/month/7444012345';
 ## Example
 
 An example of use is provided in script: [bin/suez_mon_eau](bin/suez_mon_eau)
+
+## Gem Signature
+
+SuezMonEau is cryptographically signed.
+To be sure the gem you install hasn’t been tampered with:
+
+Add the public key (if you haven’t already) as a trusted certificate:
+
+```bash
+gem cert --add <(curl -Ls https://github.com/laurent-martin/ruby-suez-mon-eau/blob/main/certs/laurent.cert.pem)
+
+gem install metric_fu -P MediumSecurity
+```
+
+The MediumSecurity trust profile will verify signed gems, but allow the installation of unsigned dependencies.
+
+This is necessary because not all of SuezMonEau’s dependencies are signed, so we cannot use HighSecurity.
+
+Refer to: <https://guides.rubygems.org/security/>
+
+## Build
+
+To build the signed gem:
+
+```bash
+SIGNING_KEY=/path/to/signing_key.pem make
+```
+
+To build without signature:
+
+```bash
+make unsigned_gem
+```
