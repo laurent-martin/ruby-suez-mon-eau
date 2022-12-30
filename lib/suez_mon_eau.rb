@@ -32,6 +32,7 @@ class SuezMonEau
     @username = username
     @password = password
     @id = id
+    @id=nil if @id.is_a?(String) && @id.empty?
     @cookies = nil
     return unless @id.nil?
     update_access_cookie
