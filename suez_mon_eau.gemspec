@@ -1,9 +1,11 @@
+# encoding: utf-8
 # frozen_string_literal: true
 
 require_relative 'lib/suez_mon_eau'
 
 # expected extension of gemspec file
 GEMSPEC_EXT = '.gemspec'
+# see https://guides.rubygems.org/specification-reference/
 Gem::Specification.new do |spec|
   # get location of this file (shall be in project root)
   gemspec_file = File.expand_path(__FILE__)
@@ -15,9 +17,12 @@ Gem::Specification.new do |spec|
   spec.version       = SuezMonEau::VERSION
   spec.authors       = ['Laurent Martin']
   spec.email         = ['laurent.martin.l@gmail.com']
-  +6
-  spec.summary       = 'Retrieve water usage information from Suez in France'
-  spec.description   = 'Retrieve water usage information from Suez in France'
+  spec.summary       = 'API for www.toutsurmoneau.fr'
+  spec.description   = <<-EOF
+    This API provides allows access to water usage information from www.toutsurmoneau.fr .
+    All is needed is to provide your portal credentials.
+    Optionally the counter identifier can be provided, else it is also read from the portal.
+  EOF
   spec.homepage      = SuezMonEau::SRC_URL
   spec.license       = 'Apache-2.0'
   spec.requirements << 'No specific requirement'

@@ -46,3 +46,6 @@ Style/TrailingCommaInArguments:
   Enabled: false
 Lint/RedundantCopDisableDirective:
   Enabled: false
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: always_true
+
