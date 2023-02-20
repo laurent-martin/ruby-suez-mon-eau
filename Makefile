@@ -10,7 +10,7 @@ $(DIR_TMP).exists:
 	mkdir -p $(DIR_TMP)
 	@touch $@
 tests:
-	. ./.config/vars.sh && ./bin/suez_mon_eau -u "$$user" -p "$$pass"
+	. ./.config/vars.sh && bundle exec ./bin/suez_mon_eau -u "$$user" -p "$$pass"
 clean::
 	rm -f Gemfile.lock
 	rm -fr $(DIR_TMP)
